@@ -3,7 +3,7 @@ webpackJsonp(["styles"],{
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/sass-loader/lib/loader.js??ref--8-3!./src/styles.scss":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n/* Sticky footer styles\n-------------------------------------------------- */\nhtml {\n  position: relative;\n  min-height: 100%; }\n.footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 60px;\n  /* Set the fixed height of the footer here */\n  line-height: 60px;\n  /* Vertically center the text there */ }\nbody {\n  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;\n  margin: 0 0 80px 0;\n  /* Margin bottom by footer height */\n  padding-top: 4rem;\n  color: #333;\n  font-size: 14px;\n  -webkit-font-smoothing: antialiased; }\n.header-button {\n  margin-top: 20px; }\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\n/* Sticky footer styles\n-------------------------------------------------- */\nhtml {\n  position: relative;\n  min-height: 100%; }\n.footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 60px;\n  /* Set the fixed height of the footer here */\n  line-height: 60px;\n  /* Vertically center the text there */ }\nbody {\n  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;\n  margin: 0 0 80px 0;\n  /* Margin bottom by footer height */\n  color: #333;\n  font-size: 14px;\n  -webkit-font-smoothing: antialiased; }\n.header-button {\n  margin-top: 20px; }\n"
 
 /***/ }),
 
@@ -508,7 +508,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./src/styles.scss");
@@ -516,5 +516,5 @@ module.exports = __webpack_require__("./src/styles.scss");
 
 /***/ })
 
-},[2]);
+},[4]);
 //# sourceMappingURL=styles.bundle.js.map
