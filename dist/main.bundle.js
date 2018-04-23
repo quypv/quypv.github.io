@@ -485,7 +485,7 @@ var ProductDetailComponent = /** @class */ (function () {
 /***/ "./src/app/product/product-list/product-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"display-5 text-center my-5\">Product Listing Page</h1>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-3 col-sm-6\" *ngFor=\"let p of products\">\n      <div class=\"card mb-3\">\n        <img class=\"card-img-top\" [src]=\"p.main_image_href ? p.main_image_href : 'http://via.placeholder.com/200x200'\" alt=\"Card image cap\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\">{{ p.sku }}</h5>\n          <p class=\"card-text\">{{ p.name }}</p>\n          <a href=\"#\" class=\"btn btn-primary\"><i class=\"fas fa-cart-plus\"></i> Add to cart</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<h1 class=\"display-5 text-center my-5\">Product Listing Page</h1>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-3 col-sm-6\" *ngFor=\"let p of products\">\n      <div class=\"card mb-3\">\n        <img class=\"card-img-top\" [src]=\"p.main_image_href ? p.main_image_href : 'http://via.placeholder.com/200x200'\" alt=\"Card image cap\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\">{{ p.sku }}</h5>\n          <h6 class=\"text-info\">{{ p.meta.display_price.with_tax.formatted }}</h6>\n          <p class=\"card-text\">{{ p.name | shorten: 50: '...' }}</p>\n          <a href=\"#\" class=\"btn btn-primary\"><i class=\"fas fa-cart-plus\"></i> Add to cart</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -518,14 +518,13 @@ var ProductListComponent = /** @class */ (function () {
     function ProductListComponent(moltin) {
         var _this = this;
         this.moltin = moltin;
-        moltin.products().then(function (data) { return _this.products = data; });
+        moltin.products().then(function (data) { _this.products = data; console.log(data[0]); });
     }
     ProductListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'product-list',
             template: __webpack_require__("./src/app/product/product-list/product-list.component.html"),
             styles: [__webpack_require__("./src/app/product/product-list/product-list.component.scss")],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__shared_services_moltin_service__["a" /* MoltinService */]],
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_services_moltin_service__["a" /* MoltinService */]])
     ], ProductListComponent);
@@ -590,12 +589,14 @@ var ProductRoutingModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__product_list_product_list_component__ = __webpack_require__("./src/app/product/product-list/product-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_detail_product_detail_component__ = __webpack_require__("./src/app/product/product-detail/product-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__product_routing_module__ = __webpack_require__("./src/app/product/product-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_pipes__ = __webpack_require__("./node_modules/ngx-pipes/ngx-pipes.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -612,7 +613,8 @@ var ProductModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__product_routing_module__["a" /* ProductRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_5_ngx_pipes__["a" /* NgPipesModule */]
             ]
         })
     ], ProductModule);
@@ -765,7 +767,7 @@ var MoltinService = /** @class */ (function () {
     }
     MoltinService.prototype.products = function () {
         return new Promise(function (resolve, reject) {
-            Moltin.Products.With('main_image').All().then(function (products) {
+            Moltin.Products.With('main_image').Limit(8).All().then(function (products) {
                 // Do something
                 var data = products.data;
                 var images = products.included.main_images;
@@ -837,6 +839,7 @@ var SharedRoutingModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_routing_module__ = __webpack_require__("./src/app/shared/shared-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_moltin_service__ = __webpack_require__("./src/app/shared/services/moltin.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -847,6 +850,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+// import {MessageService} from './services/message.service';
+// import {AuthGuardService} from './auth/auth-guard.service';
+// import {AuthInterceptorService} from './auth/auth-interceptor.service';
+// import {AuthService} from './auth/auth.service';
+// import {JwtService} from '../shared/services/jwt.service';
+// import {ShowAuthedDirective} from './show-authed.directive';
+// import {ShowIfAdminDirective} from './show-if-admin.directive';
 
 var SharedModule = /** @class */ (function () {
     function SharedModule() {
@@ -861,7 +872,9 @@ var SharedModule = /** @class */ (function () {
             ],
             exports: [],
             declarations: [],
-            providers: []
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_5__services_moltin_service__["a" /* MoltinService */],
+            ]
         })
     ], SharedModule);
     return SharedModule;
