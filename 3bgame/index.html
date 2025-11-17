@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3B Game Collection - Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+            background: #fff;
+        }
+
+        .game-card h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .game-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 3B Game Collection</h1>
+            <p>Welcome to the game directory</p>
+        </div>
+        <div class="content">
+            <div class="games-grid">
+                <a href="01_Icebreaker_game_v1.html" class="game-card">
+                    <h3>Icebreaker Game v1</h3>
+                    <p>Classic icebreaker game</p>
+                </a>
+                <a href="all-items-catalog-2.html" class="game-card">
+                    <h3>All Items Catalog 2</h3>
+                    <p>Complete items catalog</p>
+                </a>
+                <a href="game_4_with_9_puzzle.html" class="game-card">
+                    <h3>Game 4 - 9 Puzzle</h3>
+                    <p>9-piece puzzle game</p>
+                </a>
+                <a href="game_5_with_6_puzzle.html" class="game-card">
+                    <h3>Game 5 - 6 Puzzle</h3>
+                    <p>6-piece puzzle game</p>
+                </a>
+                <a href="game_6_with_9_puzzle.html" class="game-card">
+                    <h3>Game 6 - 9 Puzzle</h3>
+                    <p>9-piece puzzle game</p>
+                </a>
+                <a href="game_7_with_7_puzzle.html" class="game-card">
+                    <h3>Game 7 - 7 Puzzle</h3>
+                    <p>7-piece puzzle game</p>
+                </a>
+                <a href="game_8_with_8_puzzle.html" class="game-card">
+                    <h3>Game 8 - 8 Puzzle</h3>
+                    <p>8-piece puzzle game</p>
+                </a>
+                <a href="game_9_with_9_puzzle.html" class="game-card">
+                    <h3>Game 9 - 9 Puzzle</h3>
+                    <p>9-piece puzzle game</p>
+                </a>
+                <a href="game_10_with_5_puzzle.html" class="game-card">
+                    <h3>Game 10 - 5 Puzzle</h3>
+                    <p>5-piece puzzle game</p>
+                </a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Available at <a href="https://quypv.github.io/3bgame/" style="color: #667eea;">quypv.github.io/3bgame</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
